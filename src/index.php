@@ -1,4 +1,13 @@
 <?php
+/***************************************
+
+Name: SHOWCASE
+Author: Matt Lang 
+
+(C) Theorem Lab 2014
+
+****************************************/
+
 $dirname = "./";
 $dirs = scandir($dirname);
 $i = 0;
@@ -10,8 +19,7 @@ foreach ($dirs as $fname)
 		if(is_file($dirname.$fname."/showcase.html"))
 		{
 			//echo "$fname has showcase.html";
-			$showcases[$i] = $dirname.$fname;
-			$i++;
+			$showcases[$i++] = $dirname.$fname;
 		}
 	}
 }
@@ -19,17 +27,18 @@ foreach ($dirs as $fname)
 <!DOCTYPE html>
 <html>
 <head>
-<title>Showcase</title>
-<style>
-.showcase{
-	display:inline-block;
-	margin:50px;
-	text-align:left;
-}
-.showcase h3{
-	margin-bottom:0px;
-	padding-bottom:0px;
-}
+	<title>Showcase</title>
+	<style>
+		.showcase{
+			display:inline-block;
+			margin:50px;
+			text-align:left;
+		}
+
+		.showcase h3{
+			margin-bottom:0px;
+			padding-bottom:0px;
+		}
 .inner-showcase{
 	display:inline-block;
 	position:relative;
@@ -42,10 +51,11 @@ foreach ($dirs as $fname)
 	z-index:1000;
 	text-decoration:none;
 	position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
+    	top:0;
+    	left:0;
+    	right:0;
+    	bottom:0;
+	background-image: -moz-linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0));
 }
 .showcase iframe{
 	z-index:0;
@@ -53,7 +63,7 @@ foreach ($dirs as $fname)
 	height:250px;
 	border:0px;
 }
-body{
+body {
 	margin:0px;
 	padding:50px;
 	text-align:center;
@@ -65,9 +75,24 @@ body{
 <?php 
 foreach($showcases as $showcase)
 {
-	
-	$name = substr($showcase, 2);
-	echo "<div class='showcase'><h3>$name</h3><div class='inner-showcase'><iframe src='$showcase/showcase.html' ></iframe><a href='$showcase' class='showcase-overlay'>&nbsp;</a></div></div>";
+	$showcaseFile = $showcase . '/showcase.html';
+	$doc = new DOMDocument();
+	$doc->loadHTML(file_get_contents($showcase . '/showcase.html'));
+	$domlist = $doc->getElementsByTagName('title');
+	if ($domlist->length != 0) {
+		$name = $domlist->item(0)->nodeValue;
+	}
+	else $name = substr($showcase, 2);
+
+?>
+	<div class='showcase'>
+		<h3><?php echo $name?></h3>
+		<div class='inner-showcase'>
+			<iframe src='<?php echo $showcase?>/showcase.html' ></iframe>
+			<a href='<?php echo $showcase ?>'><span class='showcase-overlay'></span></a>
+		</div>
+	</div>
+<?php
 }
 ?>
 </body>
