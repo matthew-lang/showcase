@@ -39,36 +39,36 @@ foreach ($dirs as $fname)
 			margin-bottom:0px;
 			padding-bottom:0px;
 		}
-.inner-showcase{
-	display:inline-block;
-	position:relative;
-	width:400px;
-	height:250px;
-	border:1px solid;
-}
-.showcase-overlay{
-	display:inline-block;
-	z-index:1000;
-	text-decoration:none;
-	position:absolute;
-    	top:0;
-    	left:0;
-    	right:0;
-    	bottom:0;
-	background-image: -moz-linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0));
-}
-.showcase iframe{
-	z-index:0;
-	width:400px;
-	height:250px;
-	border:0px;
-}
-body {
-	margin:0px;
-	padding:50px;
-	text-align:center;
-}
-</style>
+		.inner-showcase{
+			display:inline-block;
+			position:relative;
+			width:400px;
+			height:250px;
+			border:1px solid;
+		}
+		.showcase-overlay{
+			display:inline-block;
+			z-index:1000;
+			text-decoration:none;
+			position:absolute;
+		    	top:0;
+		    	left:0;
+		    	right:0;
+		    	bottom:0;
+			background-image: -moz-linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0));
+		}
+		.showcase iframe{
+			z-index:0;
+			width:400px;
+			height:250px;
+			border:0px;
+		}
+		body {
+			margin:0px;
+			padding:50px;
+			text-align:center;
+		}
+	</style>
 </head>
 <body>
 <h1>Showcases</h1>
