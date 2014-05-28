@@ -7,22 +7,23 @@ Author: Matt Lang
 (C) Theorem Lab 2014
 
 ****************************************/
+include_once 'showcase.php';
 
-$dirname = "./";
-$dirs = scandir($dirname);
-$i = 0;
-$showcases = array();
-foreach ($dirs as $fname)
-{
-	if(is_dir($dirname.$fname) && $fname != '..' && $fname != '.')
-	{
-		if(is_file($dirname.$fname."/showcase.html"))
-		{
-			//echo "$fname has showcase.html";
-			$showcases[$i++] = $dirname.$fname;
-		}
-	}
+// Get the Current path of the file that of the resource requested
+$PATH 	= isset($_GET["path"])?$_GET["path"]:"";
+$DEPTH	= isset($_GET["depth"])?$_GET["depth"]:0;
+
+// Create a new Showcase at the resource
+$showcase = Showcase.create($PATH);
+
+// If showcase cannot be created - return with a Resource Not Found error
+if ($showcase == null) {
+	header('HTTP/1.0 404 Not Found');
+	exit;
 }
+
+showcase.render($DEPTH);
+
 ?>
 <!DOCTYPE html>
 <html>
