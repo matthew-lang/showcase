@@ -1,9 +1,16 @@
 Showcase
 ========
 
-Showcase organize any directory on a disk into a nice layout of different exhibits with each
-sub-directory contributing to the exhibit.   For a sub-directory to be included as an exhibit, 
-a showcase.html or a showcase.json file must exist on the sub-directory.
+Showcase is a great tool for exhibiting your work on the web.  It can take a directory on a disk
+and organizes it into a layout containing multiple icons, one for each of the exhibit.  Each 
+exhibit must reside in its own subdirectory and should contain either a file called showcase.html
+or showcase.json to be considered as part of the showcase.
 
-Each entry on showcase is hyperlink in a way such that when clicked, the exhibit itself opens 
-up as a page.
+Directories without any of the two files is dropped from the showcase. Normally, the showcase.html
+file is used as the ICON for the exhibit. Each icon is hyperlinked in a way that when it is clicked
+the exhibit itself would load. 
+
+Showcase is designe to be recursive.  It could be rendered as a showcase of showcases.  If a
+sub-directory does not have an exhibit (driven by an index file), Showcase would render the 
+sub-directory as a showcase.
+
