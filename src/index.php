@@ -13,8 +13,11 @@ include_once 'showcase.php';
 $PATH 	= isset($_GET["path"])?$_GET["path"]:"";
 $DEPTH	= isset($_GET["depth"])?$_GET["depth"]:0;
 
+echo $PATH;
+exit;
+
 // Create a new Showcase at the resource
-$showcase = Showcase.create($PATH);
+$showcase = Showcase::create($PATH);
 
 // If showcase cannot be created - return with a Resource Not Found error
 if ($showcase == null) {
@@ -23,6 +26,8 @@ if ($showcase == null) {
 }
 
 showcase.render($DEPTH);
+
+echo "End of file";
 
 ?>
 <!DOCTYPE html>
