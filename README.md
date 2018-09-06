@@ -1,7 +1,7 @@
 Showcase
 ========
 
-Showcase is a great tool for exhibiting your work on the web.  It can take a directory on the disk
+Showcase is a utility for exhibiting your work on the web.  It can take a directory on the disk
 and organize it into a layout containing multiple icons, one for each of the exhibits.  Each 
 exhibit must reside in its own subdirectory and should contain either a file called showcase.html
 or showcase.json to be considered as part of the showcase.
